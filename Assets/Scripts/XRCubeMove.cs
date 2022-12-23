@@ -42,7 +42,6 @@ public class XRCubeMove : MonoBehaviour
 
         if (Interactor.TryGetCurrent3DRaycastHit(out hit))
         {
-            hitObjet = hit.transform.gameObject;
             clickPoint = new Vector3(hit.point.x, 0, hit.point.z);
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
