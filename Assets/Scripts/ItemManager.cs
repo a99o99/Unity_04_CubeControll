@@ -42,7 +42,7 @@ public class ItemManager : MonoBehaviour
             {
                 Score += 10;
                 Debug.Log($"¾ÆÀÌÅÛ È¹µæ   -Á¡¼ö : { Score}");
-                LoadEffect(curItem.position);
+                //LoadEffect(curItem.position);
 
                 curItem.position = GetGeneractePosition();
             }
@@ -53,21 +53,41 @@ public class ItemManager : MonoBehaviour
     {
         Vector3 curPos = Vector3.zero;
 
-        while (true)
+        //while (true)
+        //{
+        //    float width = 19;
+        //    float randomX = Random.Range(-width / 2, width / 2);
+
+        //    float heigh = 15;
+        //    float randomZ = Random.Range(-heigh / 2, heigh / 2);
+
+        //    curPos = new Vector3(randomX, 0, randomZ);
+
+        //    if (Vector3.Distance(curPos, cube.position) > 2)
+        //        break;
+        //}
+
+
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
         {
-            float width = 19;
-            float randomX = Random.Range(-width / 2, width / 2);
+            int randX = Random.Range(0, 2);
 
-            float heigh = 15;
-            float randomZ = Random.Range(-heigh / 2, heigh / 2);
+            float posX = randX == 0 ? 9.5f : -9.5f;
+            float posZ = Random.Range(-7.5f, 7.5f);
+            curPos = new Vector3(posX, 0, posZ);
+        }
+        else
+        {
+            int randZ = Random.Range(0, 2);
 
-            curPos = new Vector3(randomX, 0, randomZ);
-
-            if (Vector3.Distance(curPos, cube.position) > 2)
-                break;
+            float posZ = randZ == 0 ? 7.5f : -7.5f;
+            float posX = Random.Range(-9.5f, 9.5f);
+            curPos = new Vector3(posX, 0, posZ);
         }
 
         return curPos;
+
     }
 
     public void LoadEffect(Vector3 GetCoinPos)
